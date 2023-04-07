@@ -32,11 +32,7 @@ class Phrase {
   checkLetter(placeholder, event) {
     const selectedLetter = ` ${event.currentTarget.textContent}`;
 
-    if (placeholder.className.includes(selectedLetter)) {
-      return true;
-    } else {
-      return false;
-    }
+    return placeholder.className.includes(selectedLetter) ? true : false;
   }
 
   /**
