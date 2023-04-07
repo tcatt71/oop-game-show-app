@@ -15,6 +15,7 @@ class Phrase {
       if (char === ' ') {
         letterPlaceholderLi.classList.add('space');
       } else {
+        letterPlaceholderLi.textContent = char;
         letterPlaceholderLi.classList.add('hide', 'letter', `${char}`);
       }
       phraseUl.insertAdjacentElement('beforeend', letterPlaceholderLi);
