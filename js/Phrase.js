@@ -7,6 +7,7 @@ class Phrase {
     this.phrase = phrase.toLowerCase();
   }
 
+  /** Takes the Phrase instances phrase property and displays it to the screen. */
   addPhraseToDisplay() {
     const phraseUl = document.querySelector('#phrase ul');
 
