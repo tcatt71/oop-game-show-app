@@ -38,5 +38,20 @@ class Phrase {
       return false;
     }
   }
+
+  /**
+   * Displays the letter(s) of the phrase on screen when the player correctly guesses the letter.
+   * @param {Event} event - The event object passed in from the letter key's click event.
+   */
+  showMatchedLetter(event) {
+    const placeholders = document.querySelectorAll('#phrase li');
+
+    placeholders.forEach(placeholder => {
+      if (this.checkLetter(placeholder, event)) {
+        placeholder.classList.remove('hide');
+        placeholder.classList.add('show');
+      }
+    });
+  }
 }
 const newPhrase = new Phrase(myPhrase);
