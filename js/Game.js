@@ -12,6 +12,6 @@ class Game {
       { phrase: 'the darkest hour is just before the dawn' },
       { phrase: 'the best defence is a good offence'}
     ];
-    this.activePharse = null;
+    this.activePhrase = null;
   }
 }
