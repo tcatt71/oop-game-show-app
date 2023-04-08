@@ -4,7 +4,7 @@
 
 class Phrase {
   constructor(phrase) {
-    this.phrase = phrase.toLowerCase();
+    this.phrase = phrase.phrase.toLowerCase();
   }
 
   /** Takes the Phrase instances phrase property and displays it to the screen. */
