@@ -3,6 +3,10 @@
  * Phrase.js */
 
 class Phrase {
+  /**
+   * The constructor for the Phrase class.
+   * @param {object} phrase - A phrase object with one property called phrase that has a string value.
+   */
   constructor(phrase) {
     this.phrase = phrase.phrase.toLowerCase();
   }
