@@ -21,4 +21,8 @@ class Game {
     const phrase = new Phrase(this.activePhrase);
     phrase.addPhraseToDisplay();
   }
+
+  getRandomPhrase() {
+    return this.phrases[Math.floor(Math.random() * this.phrases.length)];
+  }
 }
