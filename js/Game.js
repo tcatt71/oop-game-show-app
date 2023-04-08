@@ -14,4 +14,11 @@ class Game {
     ];
     this.activePhrase = null;
   }
+
+  startGame() {
+    document.querySelector('#overlay').style.display = 'none';
+    this.activePhrase = this.getRandomPhrase();
+    const phrase = new Phrase(this.activePhrase);
+    phrase.addPhraseToDisplay();
+  }
 }
