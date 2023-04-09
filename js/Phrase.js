@@ -33,7 +33,7 @@ class Phrase {
    * @param {Event} event - The event object passed in from the letter key's click event.
    * @returns {boolean} - True or False if the letter matches the placeholder.
    */
-  static checkLetter(placeholder, event) {
+  static #checkLetter(placeholder, event) {
     const selectedLetter = ` ${event.target.textContent}`;
 
     return placeholder.className.includes(selectedLetter) ? true : false;
@@ -47,7 +47,7 @@ class Phrase {
     const placeholders = document.querySelectorAll('#phrase li');
 
     placeholders.forEach(placeholder => {
-      if (Phrase.checkLetter(placeholder, event)) {
+      if (Phrase.#checkLetter(placeholder, event)) {
         placeholder.classList.remove('hide');
         placeholder.classList.add('show');
       }
