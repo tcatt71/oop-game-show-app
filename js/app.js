@@ -19,5 +19,8 @@ startButton.addEventListener('click', () => {
     button.classList.remove('chosen', 'wrong');
   });
 
+  const scoreboard = document.querySelectorAll('#scoreboard img[src="images/lostHeart.png"]');
+
+  scoreboard.forEach(heart => heart.getAttributeNode('src').value = 'images/liveHeart.png');
 const keyboard = document.querySelector('#qwerty');
 keyboard.addEventListener('click', (event) => newGame.handleInteraction(event));
