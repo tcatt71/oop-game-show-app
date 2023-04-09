@@ -18,8 +18,8 @@ class Game {
   startGame() {
     document.querySelector('#overlay').style.display = 'none';
     this.activePhrase = this.getRandomPhrase();
-    const phrase = new Phrase(this.activePhrase);
-    phrase.addPhraseToDisplay();
+    this.activePhrase = new Phrase(this.activePhrase);
+    this.activePhrase.addPhraseToDisplay();
   }
 
   getRandomPhrase() {

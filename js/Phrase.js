@@ -54,4 +54,3 @@ class Phrase {
     });
   }
 }
-const newPhrase = new Phrase(myPhrase);
