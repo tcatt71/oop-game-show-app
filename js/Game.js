@@ -82,9 +82,11 @@ class Game {
     overlay.classList.remove('start');
 
     if (isWinner) {
+      overlay.classList.remove('lose');
       overlay.classList.add('win');
       gameOverMessage.textContent = 'You Win!';
     } else {
+      overlay.classList.remove('win');;
       overlay.classList.add('lose');
       gameOverMessage.textContent = 'You Lose';
     }
