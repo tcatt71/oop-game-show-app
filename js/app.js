@@ -16,6 +16,7 @@ startButton.addEventListener('click', () => {
 
   keyboardButtons.forEach(button => {
     button.disabled = false;
+    button.classList.remove('chosen', 'wrong');
   });
 
 const keyboard = document.querySelector('#qwerty');
