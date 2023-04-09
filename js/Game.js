@@ -60,4 +60,17 @@ class Game {
       }
     }
   }
+
+  checkForWin() {
+    const phrasePlaceholders = document.querySelectorAll('#phrase li[class~="letter"]');
+    let isRevealed = true;
+
+    for (const placeholder of phrasePlaceholders) {
+      if (placeholder.className.includes('hide')) {
+        isRevealed = false;
+        break;
+      }
+    }
+    return isRevealed;
+  }
 }
