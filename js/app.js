@@ -22,5 +22,6 @@ startButton.addEventListener('click', () => {
   const scoreboard = document.querySelectorAll('#scoreboard img[src="images/lostHeart.png"]');
 
   scoreboard.forEach(heart => heart.getAttributeNode('src').value = 'images/liveHeart.png');
+  newGame.startGame();
 const keyboard = document.querySelector('#qwerty');
 keyboard.addEventListener('click', (event) => newGame.handleInteraction(event));
