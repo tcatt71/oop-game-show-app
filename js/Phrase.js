@@ -34,9 +34,9 @@ class Phrase {
    * @returns {boolean} - True or False if the letter matches the placeholder.
    */
   static #checkLetter(placeholder, event) {
-    const selectedLetter = ` ${event.target.textContent}`;
+    const selectedLetter = event.target.textContent;
 
-    return placeholder.className.includes(selectedLetter) ? true : false;
+    return placeholder.classList.contains(selectedLetter) ? true : false;
   }
 
   /**
