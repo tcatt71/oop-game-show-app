@@ -25,4 +25,24 @@ class Game {
   getRandomPhrase() {
     return this.phrases[Math.floor(Math.random() * this.phrases.length)];
   }
+
+  handleInteraction(event) {
+    if (event.target.tagName === 'BUTTON') {
+      const key = event.target;
+      const letter = key.textContent;
+
+      key.disabled = true;
+
+      if (this.activePhrase.phrase.includes(letter)) {
+        key.classList.add('chosen');
+        Phrase.showMatchedLetter(event);
+        if (this.checkForWin()) {
+          this.gameOver();
+        }
+      } else {
+        key.classList.add('wrong');
+        this.removeLife();
+      }
+    }
+  }
 }

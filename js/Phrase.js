@@ -33,8 +33,8 @@ class Phrase {
    * @param {Event} event - The event object passed in from the letter key's click event.
    * @returns {boolean} - True or False if the letter matches the placeholder.
    */
-  checkLetter(placeholder, event) {
-    const selectedLetter = ` ${event.currentTarget.textContent}`;
+  static checkLetter(placeholder, event) {
+    const selectedLetter = ` ${event.target.textContent}`;
 
     return placeholder.className.includes(selectedLetter) ? true : false;
   }
@@ -43,11 +43,11 @@ class Phrase {
    * Displays the letter(s) of the phrase on screen when the player correctly guesses the letter.
    * @param {Event} event - The event object passed in from the letter key's click event.
    */
-  showMatchedLetter(event) {
+  static showMatchedLetter(event) {
     const placeholders = document.querySelectorAll('#phrase li');
 
     placeholders.forEach(placeholder => {
-      if (this.checkLetter(placeholder, event)) {
+      if (Phrase.checkLetter(placeholder, event)) {
         placeholder.classList.remove('hide');
         placeholder.classList.add('show');
       }
