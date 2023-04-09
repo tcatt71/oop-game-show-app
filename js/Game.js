@@ -37,7 +37,7 @@ class Game {
         key.classList.add('chosen');
         Phrase.showMatchedLetter(event);
         if (this.checkForWin()) {
-          this.gameOver();
+          this.gameOver(true);
         }
       } else {
         key.classList.add('wrong');
@@ -54,7 +54,7 @@ class Game {
         heart.getAttributeNode('src').value = 'images/lostHeart.png'
         this.missed++;
         if (this.missed === 5) {
-          this.gameOver();
+          this.gameOver(false);
         }
         break;
       }
@@ -72,5 +72,21 @@ class Game {
       }
     }
     return isRevealed;
+  }
+
+  gameOver(isWinner) {
+    const overlay = document.querySelector('#overlay');
+    const gameOverMessage = overlay.querySelector('#game-over-message');
+
+    overlay.style.display = 'flex';
+    overlay.classList.remove('start');
+
+    if (isWinner) {
+      overlay.classList.add('win');
+      gameOverMessage.textContent = 'You Win!';
+    } else {
+      overlay.classList.add('lose');
+      gameOverMessage.textContent = 'You Lose';
+    }
   }
 }
