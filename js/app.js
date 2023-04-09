@@ -12,5 +12,11 @@ startButton.addEventListener('click', () => {
   phrase.forEach(letter => phraseUL.removeChild(letter));
 
 
+  const keyboardButtons = document.querySelectorAll('#qwerty button');
+
+  keyboardButtons.forEach(button => {
+    button.disabled = false;
+  });
+
 const keyboard = document.querySelector('#qwerty');
 keyboard.addEventListener('click', (event) => newGame.handleInteraction(event));
