@@ -45,4 +45,19 @@ class Game {
       }
     }
   }
+
+  removeLife() {
+    const scoreboardHearts = document.querySelectorAll('#scoreboard img');
+
+    for (const heart of scoreboardHearts) {
+      if (heart.getAttributeNode('src').value === 'images/liveHeart.png') {
+        heart.getAttributeNode('src').value = 'images/lostHeart.png'
+        this.missed++;
+        if (this.missed === 5) {
+          this.gameOver();
+        }
+        break;
+      }
+    }
+  }
 }
