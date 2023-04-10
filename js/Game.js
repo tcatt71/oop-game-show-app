@@ -35,7 +35,7 @@ class Game {
 
       if (this.activePhrase.phrase.includes(letter)) {
         key.classList.add('chosen');
-        Phrase.showMatchedLetter(event);
+        this.activePhrase.showMatchedLetter(event);
         if (this.checkForWin()) {
           this.gameOver(true);
         }
