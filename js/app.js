@@ -6,24 +6,27 @@ const startButton = document.querySelector('#btn__reset');
 const keyboard = document.querySelector('#qwerty');
 let newGame;
 
-  const phraseUL = document.querySelector('#phrase ul');
-  const phrase = phraseUL.querySelectorAll('li');
 keyboard.addEventListener('click', (event) => newGame.handleInteraction(event));
 
-  phrase.forEach(letter => phraseUL.removeChild(letter));
 startButton.addEventListener('click', () => {
   resetGame();
   newGame = new Game();
   newGame.startGame();
 
   function resetGame() {
+    removePhraseFromGameboard();
 
   const keyboardButtons = document.querySelectorAll('#qwerty button');
+    function removePhraseFromGameboard() {
+      const phraseUL = document.querySelector('#phrase ul');
+      const phrase = phraseUL.querySelectorAll('li');
 
   keyboardButtons.forEach(button => {
     button.disabled = false;
     button.classList.remove('chosen', 'wrong');
   });
+      phrase.forEach(letter => phraseUL.removeChild(letter));
+    }
 
   const scoreboard = document.querySelectorAll('#scoreboard img[src="images/lostHeart.png"]');
 
