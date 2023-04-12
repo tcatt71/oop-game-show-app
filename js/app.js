@@ -7,11 +7,17 @@ const keyboard = document.querySelector('#qwerty');
 let newGame;
 
 keyboard.addEventListener('click', (event) => newGame.handleInteraction(event));
+document.addEventListener('keyup', showKey);
+
+function showKey(e) {
+  console.log(e.key);
+}
 
 startButton.addEventListener('click', () => {
   resetGame();
   newGame = new Game();
   newGame.startGame();
+
 
   function resetGame() {
     removePhraseFromGameboard();
