@@ -4,10 +4,12 @@
 
 const newGame = new Game();
 const startButton = document.querySelector('#btn__reset');
+const keyboard = document.querySelector('#qwerty');
 
 startButton.addEventListener('click', () => {
   const phraseUL = document.querySelector('#phrase ul');
   const phrase = phraseUL.querySelectorAll('li');
+keyboard.addEventListener('click', (event) => newGame.handleInteraction(event));
 
   phrase.forEach(letter => phraseUL.removeChild(letter));
 
@@ -27,5 +29,3 @@ startButton.addEventListener('click', () => {
   newGame.startGame();
 });
 
-const keyboard = document.querySelector('#qwerty');
-keyboard.addEventListener('click', (event) => newGame.handleInteraction(event));
