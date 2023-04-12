@@ -12,9 +12,11 @@ keyboard.addEventListener('click', (event) => newGame.handleInteraction(event));
 
   phrase.forEach(letter => phraseUL.removeChild(letter));
 startButton.addEventListener('click', () => {
+  resetGame();
   newGame = new Game();
   newGame.startGame();
 
+  function resetGame() {
 
   const keyboardButtons = document.querySelectorAll('#qwerty button');
 
@@ -30,3 +32,5 @@ startButton.addEventListener('click', () => {
   newGame.missed = 0;
 });
 
+  }
+});
