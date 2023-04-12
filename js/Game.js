@@ -75,20 +75,29 @@ class Game {
   }
 
   gameOver(isWinner) {
-    const overlay = document.querySelector('#overlay');
-    const gameOverMessage = overlay.querySelector('#game-over-message');
+    this.#disableKeys();
+    setTimeout(() => {
+      const overlay = document.querySelector('#overlay');
+      const gameOverMessage = overlay.querySelector('#game-over-message');
 
-    overlay.style.display = 'flex';
-    overlay.classList.remove('start');
+      overlay.style.display = 'flex';
+      overlay.classList.remove('start');
 
-    if (isWinner) {
-      overlay.classList.remove('lose');
-      overlay.classList.add('win');
-      gameOverMessage.textContent = 'You Win!';
-    } else {
-      overlay.classList.remove('win');;
-      overlay.classList.add('lose');
-      gameOverMessage.textContent = 'You Lose';
-    }
+      if (isWinner) {
+        overlay.classList.remove('lose');
+        overlay.classList.add('win');
+        gameOverMessage.textContent = 'You Win!';
+      } else {
+        overlay.classList.remove('win');;
+        overlay.classList.add('lose');
+        gameOverMessage.textContent = 'You Lose';
+      }
+    }, 750);
+  }
+
+  #disableKeys() {
+    const keyboardButtons = document.querySelectorAll('#qwerty button');
+
+    keyboardButtons.forEach(button => button.disabled = true);
   }
 }
