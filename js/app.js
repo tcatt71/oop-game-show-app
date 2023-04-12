@@ -15,22 +15,25 @@ startButton.addEventListener('click', () => {
 
   function resetGame() {
     removePhraseFromGameboard();
+    resetOnscreenKeyboardButtons();
 
-  const keyboardButtons = document.querySelectorAll('#qwerty button');
     function removePhraseFromGameboard() {
       const phraseUL = document.querySelector('#phrase ul');
       const phrase = phraseUL.querySelectorAll('li');
 
-  keyboardButtons.forEach(button => {
-    button.disabled = false;
-    button.classList.remove('chosen', 'wrong');
-  });
       phrase.forEach(letter => phraseUL.removeChild(letter));
     }
 
   const scoreboard = document.querySelectorAll('#scoreboard img[src="images/lostHeart.png"]');
+    function resetOnscreenKeyboardButtons() {
+      const keyboardButtons = document.querySelectorAll('#qwerty button');
 
   scoreboard.forEach(heart => heart.getAttributeNode('src').value = 'images/liveHeart.png');
+      keyboardButtons.forEach(button => {
+        button.disabled = false;
+        button.classList.remove('chosen', 'wrong');
+      });
+    }
 
   newGame.missed = 0;
 });
