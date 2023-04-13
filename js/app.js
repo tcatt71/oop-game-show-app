@@ -9,11 +9,12 @@ let newGame;
 keyboard.addEventListener('click', (event) => newGame.handleInteraction(event));
 document.addEventListener('keyup', (event) => newGame.handleInteraction(event));
 
-startButton.addEventListener('click', () => {
+startButton.addEventListener('click', startNewGame);
+
+function startNewGame() {
   resetGame();
   newGame = new Game();
   newGame.startGame();
-
 
   function resetGame() {
     removePhraseFromGameboard();
@@ -42,4 +43,4 @@ startButton.addEventListener('click', () => {
       scoreboard.forEach(heart => heart.getAttributeNode('src').value = 'images/liveHeart.png');
     }
   }
-});
+}
