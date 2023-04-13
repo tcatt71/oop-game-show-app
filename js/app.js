@@ -11,16 +11,19 @@ document.addEventListener('keyup', (event) => newGame.handleInteraction(event));
 
 startButton.addEventListener('click', startNewGame);
 
+/** Resets the gameboard and starts a new game. */
 function startNewGame() {
   resetGame();
   newGame = new Game();
   newGame.startGame();
 
+  /** Resets the gameboard upon restarting a new game.  */
   function resetGame() {
     removePhraseFromGameboard();
     resetOnscreenKeyboardButtons();
     resetHearts();
 
+    /** Removes the previous phrase from the gameboard upon restarting a game. */
     function removePhraseFromGameboard() {
       const phraseUL = document.querySelector('#phrase ul');
       const phrase = phraseUL.querySelectorAll('li');
@@ -28,6 +31,7 @@ function startNewGame() {
       phrase.forEach(letter => phraseUL.removeChild(letter));
     }
 
+    /** Re-enables onscreen keyboard keys upon restarting a new game. */
     function resetOnscreenKeyboardButtons() {
       const keyboardButtons = document.querySelectorAll('#qwerty button');
 
@@ -37,6 +41,7 @@ function startNewGame() {
       });
     }
 
+    /** Replenishes hearts lost upon restarting a new game. */
     function resetHearts() {
       const scoreboard = document.querySelectorAll('#scoreboard img[src="images/lostHeart.png"]');
 
