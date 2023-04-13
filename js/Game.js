@@ -110,7 +110,7 @@ class Game {
         overlay.classList.add('win');
         gameOverMessage.textContent = 'You Win!';
       } else {
-        overlay.classList.remove('win');;
+        overlay.classList.remove('win');
         overlay.classList.add('lose');
         gameOverMessage.textContent = 'You Lose';
       }
