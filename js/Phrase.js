@@ -34,9 +34,15 @@ class Phrase {
    * @returns {boolean} - True or False if the letter matches the placeholder.
    */
   checkLetter(placeholder, event) {
-    const selectedLetter = event.target.textContent;
+    if (event.type === 'click') {
+      const selectedLetter = event.target.textContent;
 
-    return placeholder.classList.contains(selectedLetter) ? true : false;
+      return placeholder.classList.contains(selectedLetter) ? true : false;
+    } else if (event.type === 'keyup') {
+      const selectedLetter = event.key;
+
+      return placeholder.classList.contains(selectedLetter) ? true : false;
+    }
   }
 
   /**

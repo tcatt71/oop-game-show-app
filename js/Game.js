@@ -27,22 +27,44 @@ class Game {
   }
 
   handleInteraction(event) {
-    if (event.target.tagName === 'BUTTON') {
-      const key = event.target;
-      const letter = key.textContent;
+    if (event.type === 'click') {
+      if (event.target.tagName === 'BUTTON') {
+        const key = event.target;
+        const letter = key.textContent;
 
-      key.disabled = true;
+        key.disabled = true;
 
-      if (this.activePhrase.phrase.includes(letter)) {
-        key.classList.add('chosen');
-        this.activePhrase.showMatchedLetter(event);
-        if (this.checkForWin()) {
-          this.gameOver(true);
+        if (this.activePhrase.phrase.includes(letter)) {
+          key.classList.add('chosen');
+          this.activePhrase.showMatchedLetter(event);
+          if (this.checkForWin()) {
+            this.gameOver(true);
+          }
+        } else {
+          key.classList.add('wrong');
+          this.removeLife();
         }
-      } else {
-        key.classList.add('wrong');
-        this.removeLife();
       }
+    } else if (event.type === 'keyup') {
+      const onscreenKeys = document.querySelectorAll('#qwerty button');
+      const letter = event.key;
+
+      onscreenKeys.forEach(key => {
+        if (key.textContent === letter) {
+          key.disabled = true;
+
+          if (this.activePhrase.phrase.includes(letter)) {
+            key.classList.add('chosen');
+            this.activePhrase.showMatchedLetter(event);
+            if (this.checkForWin()) {
+              this.gameOver(true);
+            }
+          } else {
+            key.classList.add('wrong');
+            this.removeLife();
+          }
+        }
+      })
     }
   }
 
