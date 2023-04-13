@@ -15,6 +15,7 @@ class Game {
     this.activePhrase = null;
   }
 
+  /** Removes initial overlay revealing the gameboard and displays a random phrase. */
   startGame() {
     document.querySelector('#overlay').style.display = 'none';
     this.activePhrase = this.getRandomPhrase();
@@ -22,10 +23,18 @@ class Game {
     this.activePhrase.addPhraseToDisplay();
   }
 
+  /**
+   * Returns a random phrase from the phrase array.
+   * @returns {object}
+   */
   getRandomPhrase() {
     return this.phrases[Math.floor(Math.random() * this.phrases.length)];
   }
 
+  /**
+   * Handles both onscreen and user keyboard interaction.
+   * @param {Event} event - The click or keyup event.
+   */
   handleInteraction(event) {
     if (event.type === 'click') {
       if (event.target.tagName === 'BUTTON') {
@@ -68,6 +77,7 @@ class Game {
     }
   }
 
+  /** Removes a life from the scroeboard and invokes the gameOver method if all lives have been lost. */
   removeLife() {
     const scoreboardHearts = document.querySelectorAll('#scoreboard img');
 
@@ -83,6 +93,10 @@ class Game {
     }
   }
 
+  /**
+   * Checks if all letters of the phrase have been revealed.
+   * @returns {boolean} - True or False.
+   */
   checkForWin() {
     const phrasePlaceholders = document.querySelectorAll('#phrase li[class~="letter"]');
     let isRevealed = true;
@@ -96,6 +110,10 @@ class Game {
     return isRevealed;
   }
 
+  /**
+   * Disables the onscreen keyboard keys and displays a delayed win or lose overlay.
+   * @param {boolean} isWinner - True or False if the player won the game.
+   */
   gameOver(isWinner) {
     this.#disableKeys();
     setTimeout(() => {
@@ -117,6 +135,7 @@ class Game {
     }, 750);
   }
 
+  /** Disables all onscreen keyboard keys. */
   #disableKeys() {
     const keyboardButtons = document.querySelectorAll('#qwerty button');
 
