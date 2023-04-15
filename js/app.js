@@ -17,7 +17,7 @@ function startNewGame() {
   newGame = new Game();
   newGame.startGame();
 
-  /** Resets the gameboard upon restarting a new game.  */
+  /** Resets the gameboard upon restarting a new game. */
   function resetGame() {
     removePhraseFromGameboard();
     resetOnscreenKeyboardButtons();
