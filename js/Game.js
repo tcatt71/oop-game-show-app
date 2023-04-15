@@ -6,11 +6,11 @@ class Game {
   constructor() {
     this.missed = 0;
     this.phrases = [
-      { phrase: 'This is a new year' },
-      { phrase: 'a bird in the hand is worth two in the bush' },
-      { phrase: 'hot on the heels' },
-      { phrase: 'the darkest hour is just before the dawn' },
-      { phrase: 'the best defence is a good offence' }
+      new Phrase('This is a new year'),
+      new Phrase('a bird in the hand is worth two in the bush'),
+      new Phrase('hot on the heels'),
+      new Phrase('the darkest hour is just before the dawn'),
+      new Phrase('the best defence is a good offence')
     ];
     this.activePhrase = null;
   }
@@ -19,7 +19,7 @@ class Game {
   startGame() {
     document.querySelector('#overlay').style.display = 'none';
     this.activePhrase = this.getRandomPhrase();
-    this.activePhrase = new Phrase(this.activePhrase);
+    console.log(this.activePhrase);
     this.activePhrase.addPhraseToDisplay();
   }
 

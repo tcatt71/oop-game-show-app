@@ -4,11 +4,11 @@
 
 class Phrase {
   /**
-   * The constructor for the Phrase class.
-   * @param {object} phrase - A phrase object with one property called phrase that has a string value.
+   * The constructor for the Phrase class. Converts the given phrase to all lowercase.
+   * @param {object} phrase - A phrase object.
    */
   constructor(phrase) {
-    this.phrase = phrase.phrase.toLowerCase();
+    this.phrase = phrase.toLowerCase();
   }
 
   /** Takes the Phrase instances phrase property and displays it to the screen. */
