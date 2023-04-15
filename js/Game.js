@@ -116,6 +116,8 @@ class Game {
    */
   gameOver(isWinner) {
     this.#disableKeys();
+    controller.abort();
+
     setTimeout(() => {
       const overlay = document.querySelector('#overlay');
       const gameOverMessage = overlay.querySelector('#game-over-message');

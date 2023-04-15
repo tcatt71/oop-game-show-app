@@ -5,17 +5,24 @@
 const startButton = document.querySelector('#btn__reset');
 const keyboard = document.querySelector('#qwerty');
 let newGame;
+let controller;
 
 keyboard.addEventListener('click', (event) => newGame.handleInteraction(event));
-document.addEventListener('keyup', (event) => newGame.handleInteraction(event));
-
 startButton.addEventListener('click', startNewGame);
 
 /** Resets the gameboard and starts a new game. */
 function startNewGame() {
   resetGame();
+
   newGame = new Game();
   newGame.startGame();
+
+  controller = new AbortController();
+  const signal = controller.signal;
+
+  document.addEventListener('keyup', (event) => {
+    newGame.handleInteraction(event);
+  }, { signal });
 
   /** Resets the gameboard upon restarting a new game. */
   function resetGame() {
