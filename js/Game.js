@@ -19,7 +19,6 @@ class Game {
   startGame() {
     document.querySelector('#overlay').style.display = 'none';
     this.activePhrase = this.getRandomPhrase();
-    console.log(this.activePhrase);
     this.activePhrase.addPhraseToDisplay();
   }
 
