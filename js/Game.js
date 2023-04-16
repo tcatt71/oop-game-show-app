@@ -117,11 +117,13 @@ class Game {
     this.#disableKeys();
     controller.abort();
 
+    const overlay = document.querySelector('#overlay');
+    overlay.style.display = 'flex';
+    overlay.style.opacity = '0';
+
     setTimeout(() => {
-      const overlay = document.querySelector('#overlay');
       const gameOverMessage = overlay.querySelector('#game-over-message');
 
-      overlay.style.display = 'flex';
       overlay.classList.remove('start');
 
       if (isWinner) {
@@ -133,6 +135,8 @@ class Game {
         overlay.classList.add('lose');
         gameOverMessage.textContent = 'You Lose';
       }
+
+      overlay.style.opacity = '1';
     }, 750);
   }
 

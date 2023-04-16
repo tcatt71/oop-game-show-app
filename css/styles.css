@@ -191,6 +191,7 @@ button {
 
 .win {
   background-color: var(--color-win);
+  transition: opacity 1.5s;
 }
 
 .win a {
@@ -199,6 +200,8 @@ button {
 
 .lose {
   background-color: #f5785f;
+  transition: opacity 1.5s;
+
 }
 
 .lose a {
